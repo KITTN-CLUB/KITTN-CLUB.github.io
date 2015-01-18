@@ -4,7 +4,6 @@ body {
   padding: 0;
 }
 
-
 header {
   $header-height: 25em;
 
@@ -15,7 +14,8 @@ header {
     ),
     url('/img/main.gif');
   background-size: cover;
-  padding-bottom: 1em;
+  padding-top: $section-spacing;
+  padding-bottom: $section-spacing / 2;
 
   h1 {
     font-family: 'Pacifico', cursive;
@@ -35,24 +35,24 @@ header {
       font-weight: 150;
     }
   }
+}
 
-  .tagline {
-    margin: {
-      right: auto;
-      left: auto;
-      top: 2em;
-      bottom: 2em;
-    }
-    padding: 1em;
-    font-size: 1.25em;
-    background: rgba(255, 255, 255, .3);
-    text-align: center;
-    border-radius: 1.75em;
-    width: 80%;
+.tagline {
+  margin: {
+    right: auto;
+    left: auto;
+    top: 2em;
+    bottom: 2em;
+  }
+  padding: 1em;
+  font-size: 1.25em;
+  background: rgba(255, 255, 255, .3);
+  text-align: center;
+  border-radius: 1.75em;
+  width: 80%;
 
-    @include media($breakpoint-tablet) {
-      font-size: 1.5em;
-    }
+  @include media($breakpoint-tablet) {
+    font-size: 1.5em;
   }
 }
 
@@ -66,7 +66,6 @@ header {
 
 section {
   @include outer-container;
-  $section-spacing: 2em;
 
   padding: {
     top: $section-spacing;
@@ -88,10 +87,40 @@ section {
     @include span-columns(4);
     text-align: center;
     font-size: 1.2em;
+
+    img {
+      text-align: center;
+      width: 100%;
+    }
+  }
+
+  &.cost {
+    p {
+      font-size: 1.2em;
+      padding-top: $section-spacing;
+    }
   }
 }
 
 img.portrait {
   border: 6px solid white;
   box-shadow: 0 0 4px 0 black;
+}
+
+a.button {
+  @include button;
+}
+
+footer {
+  background-color: $light-grey;
+  padding: {
+    top: $section-spacing;
+    bottom: $section-spacing;
+  }
+  border-bottom: 1em solid darken($light-grey, 10);
+
+  .inner {
+    @include outer-container;
+    text-align: center;
+  }
 }
